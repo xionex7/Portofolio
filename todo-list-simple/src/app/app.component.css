@@ -1,0 +1,159 @@
+
+  :host {
+    --electric-violet: oklch(53.18% 0.28 296.97);
+    --vivid-pink: oklch(69.02% 0.277 332.77);
+    --orange-red: oklch(63.32% 0.24 31.68);
+
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
+      90deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    color: var(--electric-violet);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  .content h1 {
+    margin-top: 1.75rem;
+  }
+
+  .content {
+    flex-direction: column;
+    width: max-content;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    background: var(--red-to-pink-to-purple-horizontal-gradient);
+    margin-block: 1.5rem;
+  }
+
+  .todo-list {
+    width: 100%;
+    padding-bottom: 100%;
+    background: var(--red-to-pink-to-purple-horizontal-gradient);
+  }
+
+  .todo-input {
+    width: 70%;
+    height: 2.5rem;
+    border: 0.20rem solid var(--vivid-pink);
+    margin-top: 1.75rem;
+    margin-left: 0.5rem;
+  }
+
+  .todo-input:focus {
+    border: 0.20rem solid var(--vivid-pink);
+  }
+
+  .add-button {
+    width: 20%;
+    height: 3rem;
+    background-color: #fff;
+    color: var(--electric-violet);
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    border: 0.20rem solid var(--vivid-pink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  }
+
+  .add-button:hover {
+    background-color: var(--vivid-pink);
+    color: #fff;
+  }
+
+  .newTask-list {
+    width: 90%;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    background: #fff;
+    border-radius: 0.25rem;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    border-color: var(--vivid-pink);
+  }
+
+  .task {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 0.1rem solid var(--vivid-pink);
+  }
+
+  .task-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .task-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: 1rem;
+  }
+
+  .task-name {
+    width: 100%;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    color: var(--electric-violet);
+    font-weight: 500;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  }
+
+  .delete-button {
+    height: 3rem;
+    margin-left: auto !important;
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--electric-violet);
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  }
+
+  .delete-button:hover {
+    background-color: var(--vivid-pink);
+    color: #fff;
+  }
