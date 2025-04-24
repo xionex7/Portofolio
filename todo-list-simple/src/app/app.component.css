@@ -157,3 +157,7 @@
     background-color: var(--vivid-pink);
     color: #fff;
   }
+
+  button:disabled {
+    opacity: 0.5;
+  }
