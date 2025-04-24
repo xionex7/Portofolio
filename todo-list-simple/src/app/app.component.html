@@ -11,21 +11,21 @@
           class="todo-input"
           placeholder="Add a new task"
           [(ngModel)]="newTask"
-          maxlength="10"
+          maxlength="15"
         />
-        <button class="add-button" type="button" (click)="addTask()">Add</button>
+        <button class="add-button" type="button" [disabled]="!newTask" (click)="addTask()">Add</button>
         <div class="newTask-list">
-          @for (task of tasks; track tasks) {
+          @for (task of this.tasks; track task.id) {
             <div class="task">
               <label class="task-label">
                 <input 
                   type="checkbox" 
                   class="task-checkbox"
                   [(ngModel)]="isChecked"
-                  (change)="checkValue(isChecked)"/>
-                <span class="task-name">{{ task }}</span>
+                  (change)="onCheckboxChange(task)"/>
+                <span class="task-name">{{ task.name }}</span>
               </label>
-              <button class="delete-button" type="button" (click)="deleteTask()">Delete</button>
+              <button class="delete-button" type="button" [disabled]="isDisabled" (click)="deleteTask(task.id)">Delete</button>
             </div>
           }
         </div>

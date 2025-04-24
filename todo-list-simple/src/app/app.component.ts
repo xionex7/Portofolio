@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { Tasks } from './models/tasks.model';
 
 @Component({
   selector: 'app-root',
   imports: [
     FormsModule,
-    RouterOutlet
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -14,30 +15,37 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'Simple Todo List';
   newTask: string = '';
-  tasks: string[] = [];
+  tasks: Tasks[] = [];
+  savedTasks: Tasks[] = [];
   isChecked: boolean = false;
+  isDisabled: boolean = false;
 
   addTask() {
-    this.tasks.push(this.newTask);
+    this.tasks.push({
+      id: this.tasks.length + 1,
+      name: this.newTask
+    });
+    this.newTask = '';
   }
 
-  deleteTask(){
-    this.tasks.pop();
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  deleteTask(id: number) {
+      this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  saveTask(){
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  saveTask(savedTasks: Tasks[] = []) {
+    localStorage.setItem('savetasks', JSON.stringify(savedTasks));
   }
 
-  checkValue(checked: boolean){
-    this.isChecked = checked;
-    if(this.isChecked == true){
-      this.saveTask();
+  onCheckboxChange(task: Tasks) {
+    if (this.isChecked) {
+      this.isDisabled = true;
+      this.savedTasks.push(task);
+      this.saveTask(this.savedTasks);
       this.isChecked = false;
-    }
-    else{
-      localStorage.removeItem('tasks');
+    } else {
+      this.savedTasks = this.savedTasks.filter((savedTask) => savedTask.id !== task.id);
+      this.saveTask(this.savedTasks);
+      this.isDisabled = false;
     }
   }
 }
